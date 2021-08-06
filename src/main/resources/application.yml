@@ -1,0 +1,40 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    initialization-mode: always
+    platform: postgres
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ampq
+    username: ampq
+    password: ampq
+  main:
+    allow-bean-definition-overriding: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        show-sql: true
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        enable_lazy_load_no_trans: true
+        generate_statistics: false
+        format_sql: true
+        jdbc:
+        lob:
+        non_contextual_creation: true
+
+service:
+  name: unfavorite
+#logging:
+#  level:
+#    org:
+#      hibernate:
+#        SQL: DEBUG
+#        type:
+#          descriptor:
+#            sql:
+#              BasicBinder: TRACE
